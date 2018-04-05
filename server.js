@@ -10,10 +10,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.text());
 app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
 
-app.use(express.static('public'));
-app.use(express.static('public/assets/img'));
+app.use(express.static(__dirname + '/app/public'));
+// app.use(express.static('public/assets/img'));
 
-require('./app/routing/apiRouting.js')(app);
+require('./app/routing/apiRoutes.js')(app);
 require('./app/routing/htmlRoutes.js')(app);
 // this starts the server
 app.listen(PORT, function() {
