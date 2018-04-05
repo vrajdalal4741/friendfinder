@@ -1,0 +1,19 @@
+body {
+	background-image: url('../img/friends.jpg');
+}
+
+form {
+	max-width: 500px;
+	background-color: white;
+	color: red;
+}
+
+.container-home {
+	background-color: white;
+	font-size: 50px;
+	color: red;
+	text-align: center;
+	margin-top: 225px;
+	padding-left: -50px;
+	padding-right: -50px
+}

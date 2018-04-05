@@ -7,10 +7,13 @@ const apiPaths = function (app) {
 	});
 
 	app.post('/api/people', function(request, response) {
-
+		console.log(request.body);
 		let newPerson = request.body;
 		const newPersonAnswers = request.body.eval;
-		let finalScores = []; 
+		let finalScores = [];
+		console.log(newPersonAnswers);
+		console.log(request.body.eval);
+
 	
 // for loops are only for arrays
 	for (var i = 0; i < people.length; i++) {

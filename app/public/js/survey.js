@@ -5,17 +5,45 @@ $(document).ready(function() {
 		// jQuery.ajaxSettings.traditional = true;
 		event.preventDefault();
 
-		let newPerson = $('#name').val().trim();
+		let newPersonName = $('#name').val().trim();
 
-		if (newPerson.length === 0) {
+		if (newPersonName.length === 0) {
 			alert("Please fill out your name!");
+
 		} else {
 
-			let answerChoices = $(".answer");
-			let answers =[];
+			let answerChoices = $(".answers");
+			let answers = [];
+			Object.keys(answerChoices).forEach(function(input) {
+				if (answers.length < 10) {
+					answers.push(answerChoices[input].value)
+				}
+			});
+			console.log(answers);
 
-			console.log(answerChoices);
-		}
-	})
+			let newPerson = {
+				'name': newPersonName,
+				'eval': answers
+			}
 
-})
+			console.log(newPerson);
+
+			$.ajax({
+				'url': '/api/people',
+				'type': 'POST',
+				'data': {
+					'name': newPersonName,
+					'eval': answers
+				},
+				'dataType': 'json',
+				'success': function (result) {
+					console.log(result);
+				}
+			})
+				}
+			})
+		})
+
+	
+
+
